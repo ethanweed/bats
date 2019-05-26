@@ -3,6 +3,7 @@ title: "Bat population in Connecticut"
 author: "Zeb Hansen"
 date: "5/25/2019"
 output: html_document
+
 ---
 
 ```{r setup, include=FALSE}
