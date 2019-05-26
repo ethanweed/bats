@@ -1,0 +1,34 @@
+---
+title: "Bat population in Connecticut"
+author: "Zeb Hansen"
+date: "5/25/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo = FALSE}
+rm(list=ls())
+
+df<-read.csv("/Users/ethan/Documents/GitHub/bats/data/ct-bat-data.csv", sep = ";")
+
+df$Year <- as.numeric(df$Year) 
+
+```
+
+```{r}
+library(ggplot2)
+
+
+ggplot(df, aes(Year, Bats)) + 
+  geom_line(stat="identity")+
+  scale_x_continuous(breaks = seq(2007,2017,1)) +
+  scale_y_continuous(breaks = seq(0,2700,300)) +
+  ylab("Number of bats at monitoring sites") +
+  labs(title = "How fast bats are dying in Connecticut", caption = "Data from ct.gov") +
+  theme_classic()
+
+```
+
