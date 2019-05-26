@@ -12,14 +12,17 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r echo = FALSE}
 rm(list=ls())
 
+library(png)
+
 df<-read.csv("/Users/ethan/Documents/GitHub/bats/data/ct-bat-data.csv", sep = ";")
 
-df$Year <- as.numeric(df$Year) 
+bat <- readPNG("/Users/ethan/Documents/GitHub/bats/data/Bat.png")
 
 ```
 
 ```{r}
 library(ggplot2)
+
 
 
 ggplot(df, aes(Year, Bats)) + 
@@ -28,7 +31,9 @@ ggplot(df, aes(Year, Bats)) +
   scale_y_continuous(breaks = seq(0,2700,300)) +
   ylab("Number of bats at monitoring sites") +
   labs(title = "How fast bats are dying in Connecticut", caption = "Data from ct.gov") +
-  theme_classic()
+  theme_classic() + 
+  annotation_raster(bat, 2012, 2014,1800,2100)
+  
 
 ```
 
