@@ -24,8 +24,6 @@ bat <- readPNG("/Users/ethan/Documents/GitHub/bats/data/Bat.png")
 ```{r}
 library(ggplot2)
 
-
-
 ggplot(df, aes(Year, Bats)) + 
   geom_line(stat="identity")+
   scale_x_continuous(breaks = seq(2007,2017,1)) +
